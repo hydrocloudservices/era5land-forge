@@ -28,7 +28,7 @@ class Config(object):
         'evaporation_from_open_water_surfaces_excluding_oceans': 'evaow',
         'evaporation_from_vegetation_transpiration': 'evavt',
         'evaporation_from_the_top_of_canopy': 'evatc',
-        'evapotranspiration': 'e',
+        'total_evaporation': 'e',
         'lake_ice_depth': 'licd',
         'potential_evaporation': 'pev',
         'skin_temperature': 'skt',

@@ -16,8 +16,8 @@ class Config(object):
                        }
 
     # Dataset
-    START_DATE = "2001-01-01"
-    END_DATE = (datetime.utcnow() - timedelta(days=120)).strftime('%Y-%m-%d')
+    START_DATE = "2000-01-01"
+    END_DATE = (datetime.utcnow() - timedelta(days=102)).strftime('%Y-%m-%d')
 
     VARIABLES = {
         '2m_dewpoint_temperature': 'd2m',

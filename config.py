@@ -16,7 +16,7 @@ class Config(object):
                        }
 
     # Dataset
-    START_DATE = "1950-01-01"
+    START_DATE = "1970-01-01"
     END_DATE = (datetime.utcnow() - timedelta(days=65)).strftime('%Y-%m-%d')
 
     VARIABLES = {

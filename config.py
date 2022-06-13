@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 class Config(object):
 
     # Bucket configuration
-    BUCKET = 's3://era5-atlantic-northeast/netcdf/land/day'
+    BUCKET = 's3://era5-atlantic-northeast/grib2/land/day'
     CLIENT_KWARGS = {'endpoint_url': 'https://s3.us-east-2.wasabisys.com',
                      'region_name': 'us-east-2'}
     CONFIG_KWARGS = {'max_pool_connections': 30}
@@ -17,7 +17,7 @@ class Config(object):
 
     # Dataset
     START_DATE = "1950-01-01"
-    END_DATE = (datetime.utcnow() - timedelta(days=90)).strftime('%Y-%m-%d')
+    END_DATE = (datetime.utcnow() - timedelta(days=65)).strftime('%Y-%m-%d')
 
     VARIABLES = {
         '2m_dewpoint_temperature': 'd2m',

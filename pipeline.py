@@ -103,6 +103,8 @@ def save_unique_variable_date_file(dates_vars):
             cleaned_list = [x for x in list(ds.coords.keys()) if x not in ['latitude', 'longitude', 'time']]
             ds = ds \
                 .drop(cleaned_list)
+            
+        ds['time'] = pd.to_datetime(ds.time.values)
 
         if 'expver' in list(ds.dims):
             ds = ds.reduce(np.nansum, 'expver')

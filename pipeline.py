@@ -104,7 +104,15 @@ def save_unique_variable_date_file(dates_vars):
             ds = ds \
                 .drop(cleaned_list)
             
+        if ds.time.shape[0] == 23 and pd.Timestamp(ds.time[0].values).hour==1:
+            missing_time = ds.time[0].values - np.timedelta64(1, 'h')
+            missing_time_da = xr.DataArray([missing_time], dims=["time"], coords=[[missing_time]])
+            full_time = xr.concat([ds.time, missing_time_da], dim="time")
+            ds = ds.reindex(time=full_time, fill_value=np.nan).sortby("time")
+
+
         ds['time'] = pd.to_datetime(ds.time.values)
+
 
         if 'expver' in list(ds.dims):
             ds = ds.reduce(np.nansum, 'expver')

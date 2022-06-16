@@ -111,7 +111,11 @@ def save_unique_variable_date_file(dates_vars):
             ds = ds.reindex(time=full_time, fill_value=np.nan).sortby("time")
 
 
-        ds['time'] = pd.to_datetime(ds.time.values)
+        ds['time'] = pd.date_range(pd.to_datetime(ds.time.values[0]).strftime('%Y%m%d'),
+                                     pd.to_datetime(ds.time.values[0] + np.timedelta64(1, 'D')).strftime('%Y%m%d'),
+                                     inclusive='left',
+                                     freq='H')
+        ds = ds.transpose('time','latitude','longitude')
 
 
         if 'expver' in list(ds.dims):

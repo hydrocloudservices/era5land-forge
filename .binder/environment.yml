@@ -9,7 +9,7 @@ dependencies:
  - distributed
  - fsspec
  - numcodecs
- - prefect
+ - prefect=1.3.0
  - xarray
  - netcdf4
  - scipy
